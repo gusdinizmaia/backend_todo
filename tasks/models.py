@@ -9,8 +9,10 @@ class STATUS_CHOICES(models.TextChoices):
 
 class Task(models.Model):
 
-    title = models.CharField()
-    description = models.CharField()
+    title = models.CharField(max_length=44)
+    description = models.CharField(max_length=144)
     date = models.DateField()
     duration = models.TimeField()
-    status = models.CharField(choices=STATUS_CHOICES, default=STATUS_CHOICES.PENDANT)
+    status = models.CharField(
+        max_length=8, choices=STATUS_CHOICES, default=STATUS_CHOICES.PENDANT
+    )
