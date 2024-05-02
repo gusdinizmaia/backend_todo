@@ -15,7 +15,7 @@ class TaskSerializer(serializers.ModelSerializer):
     description = serializers.CharField()
     date = serializers.DateField()
     duration = serializers.TimeField()
-    status = serializers.CharField()
+    status = serializers.CharField(read_only=True)
 
     def create(self, validated_data):
         return Task.objects.create(**validated_data)
